@@ -32,6 +32,8 @@ int main()
         // Draw the sprite
         ap.draw(app);
         ap.moveBall();
+        //ap.movePlatform();
+        ap.boom();
 
         // Update the window
         app.display();

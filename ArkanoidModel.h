@@ -9,6 +9,8 @@
 
 class ArkanoidModel
 {
+
+    int a;
     int ballx;
     int bally;
     int movex;
@@ -29,6 +31,8 @@ class ArkanoidModel
         ArkanoidModel();
         void draw (sf::RenderWindow &win);
         void moveBall();
+        void movePlatform();
+        void boom();
 
 };
 
