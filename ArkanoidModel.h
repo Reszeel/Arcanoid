@@ -10,6 +10,7 @@
 class ArkanoidModel
 {
 
+    bool firstTouch;
     int a;
     int ballx;
     int bally;
@@ -26,6 +27,7 @@ class ArkanoidModel
     sf::Sprite platform;
     sf::Sprite ball;
     sf::Sprite background;
+    sf::Sprite wallSprite;
     std::vector <sf::Sprite> wall;
     public:
         ArkanoidModel();
@@ -33,6 +35,7 @@ class ArkanoidModel
         void moveBall();
         void movePlatform();
         void boom();
+        void usePlatform();
 
 };
 
