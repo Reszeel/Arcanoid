@@ -9,13 +9,12 @@
 
 class ArkanoidModel
 {
-
-    bool firstTouch;
     int a;
     int ballx;
     int bally;
     int movex;
     int movey;
+    int HP;
     std::vector <sf::RectangleShape> bricks;
     sf::Texture background_texture;
     sf::Texture ball_texture;
@@ -33,9 +32,11 @@ class ArkanoidModel
         ArkanoidModel();
         void draw (sf::RenderWindow &win);
         void moveBall();
-        void movePlatform();
+        void movePlatform(int x);
         void boom();
         void usePlatform();
+        bool isFinished();
+
 
 };
 

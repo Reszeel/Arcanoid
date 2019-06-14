@@ -2,7 +2,8 @@
 
 ArkanoidModel::ArkanoidModel()
 {
-    a = 4;
+    a = 50;
+    HP = 3;
     if (!rightwall.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\rightwall.png")) abort();
     if (!ball_texture.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\ball.png")) abort();
     if (!leftwall.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\leftwall.png")) abort();
@@ -35,7 +36,7 @@ ArkanoidModel::ArkanoidModel()
     }
     movex = 1;
     movey = 1;
-    firstTouch = false;
+    //firstTouch = false;
 }
 void ArkanoidModel::draw(sf::RenderWindow &win){
     win.draw(background);
@@ -54,15 +55,30 @@ void ArkanoidModel::moveBall(){
     bally = ball.getPosition().y;
     if (ballx > 785 || ballx < 15) movex = -movex;
     if (bally >799 || bally < 15) movey= -movey;
+    if (ballx < 1) movey = -movey;
     ball.move(movex, movey);
+    Sleep(1);
 }
-void ArkanoidModel::movePlatform(){
-    if (platform.getPosition().x > 799 || platform.getPosition().x < 1) a = -a;
-        platform.move(a, 0);
+void ArkanoidModel::movePlatform(int x){
+    if (x == 1 && platform.getPosition().x > 15) platform.move(-a , 0);
+    if (x == 2 && platform.getPosition().x < 700) platform.move (a, 0);
 }
 void ArkanoidModel::boom(){
     int x;
     int y;
+    if (ball.getGlobalBounds().intersects(platform.getGlobalBounds())){
+        int platHit;
+        platHit = ball.getPosition().x - platform.getPosition().x;
+        if (platHit > 0 && platHit < 46){
+          movey = -movey;
+          movex = -movex;
+          ball.move(movex, movey);
+        }
+        if (platHit > 45 && platHit < 90){
+          movey = -movey;
+          ball.move(movex, movey);
+        }
+    }
     for (int i = 0; i < bricks.size(); ++i){
         if (ball.getGlobalBounds().intersects(bricks[i].getGlobalBounds())){
             x = ball.getPosition().x;
@@ -75,4 +91,15 @@ void ArkanoidModel::boom(){
             ball.move(movex, movey);
         }
     }
+    if (ball.getPosition().y > 798){
+        ball.setPosition(600,600);
+        Sleep(1000);
+        movex = 1;
+        movey = -1;
+        HP--;
+    }
+}
+bool ArkanoidModel::isFinished(){
+    if (HP == 0) abort();//return true;
+    return false;
 }
