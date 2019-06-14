@@ -4,10 +4,13 @@
 #include "ArkanoidModel.h"
 
 
-class ArkanoidView
+class ArkanoidView :public ArkanoidModel
 {
+    ArkanoidModel &model;
 
     public:
+        ArkanoidView(ArkanoidModel &m);
+        void draw(sf::RenderWindow &win);
 
 };
 

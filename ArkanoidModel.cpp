@@ -103,3 +103,21 @@ bool ArkanoidModel::isFinished(){
     if (HP == 0) abort();//return true;
     return false;
 }
+std::vector<sf::RectangleShape> ArkanoidModel::getBricks(){
+    return bricks;
+}
+std::vector <sf::Sprite> ArkanoidModel::getWall(){
+    return wall;
+}
+sf::Sprite ArkanoidModel::getBall(){
+    return ball;
+}
+sf::Sprite ArkanoidModel::getPlatform(){
+    return platform;
+}
+sf::Sprite ArkanoidModel::getBackground(){
+    return background;
+}
+int ArkanoidModel::getHP(){
+    return HP;
+}

@@ -1,13 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include "ArkanoidModel.h"
 #include "ArkanoidController.h"
+#include "ArkanoidView.h"
 #include <iostream>
+#include <IntroView.h>
 
 int main()
 {
 
     sf::RenderWindow app(sf::VideoMode(800, 800), "SFML window");
     ArkanoidModel ap;
+    IntroView iv(ap);
     ArkanoidController ac(ap);
     while (app.isOpen())
     {
@@ -24,7 +27,7 @@ int main()
         app.clear();
 
         // Draw the sprite
-        ap.draw(app);
+        ac.draw(app);
         ac.mov();
         ap.isFinished();
         //ap.moveBall();

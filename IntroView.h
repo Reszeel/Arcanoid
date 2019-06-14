@@ -5,14 +5,14 @@
 
 class IntroView
 {
+    ArkanoidModel & model;
+    sf::Font font;
+    sf::Text opening;
 
     public:
-        IntroView();
-        virtual ~IntroView();
-
-    protected:
-
-    private:
+        IntroView(ArkanoidModel &m);
+        void draw(sf::RenderWindow &win);
+        bool isFinished(sf::Event &event);
 };
 
 #endif // INTROVIEW_H

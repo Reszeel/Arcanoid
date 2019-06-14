@@ -15,7 +15,7 @@ class ArkanoidModel
     int movex;
     int movey;
     int HP;
-    std::vector <sf::RectangleShape> bricks;
+
     sf::Texture background_texture;
     sf::Texture ball_texture;
     sf::Sprite sprite;
@@ -23,19 +23,27 @@ class ArkanoidModel
     sf::Texture leftwall;
     sf::Texture topwall;
     sf::Texture platform_texture;
+
+    sf::Sprite wallSprite;
+protected:
+    sf::Sprite background;
     sf::Sprite platform;
     sf::Sprite ball;
-    sf::Sprite background;
-    sf::Sprite wallSprite;
     std::vector <sf::Sprite> wall;
+    std::vector <sf::RectangleShape> bricks;
     public:
         ArkanoidModel();
         void draw (sf::RenderWindow &win);
         void moveBall();
         void movePlatform(int x);
         void boom();
-        void usePlatform();
         bool isFinished();
+        std::vector<sf::RectangleShape> getBricks();
+        std::vector <sf::Sprite> getWall();
+        sf::Sprite getBall();
+        sf::Sprite getPlatform();
+        sf::Sprite getBackground();
+        int getHP();
 
 
 };
