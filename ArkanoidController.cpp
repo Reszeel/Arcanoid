@@ -17,3 +17,10 @@ void ArkanoidController::mov(){
     model.moveBall();
     model.boom();
 }
+bool ArkanoidController::isFinished(){
+    if (model.getHP() == 0) return true;
+    return false;
+}
+void ArkanoidController::resetgame(){
+    model.reset();
+}

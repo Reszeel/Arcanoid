@@ -15,6 +15,7 @@ class ArkanoidModel
     int movex;
     int movey;
     int HP;
+    int score;
 
     sf::Texture background_texture;
     sf::Texture ball_texture;
@@ -23,7 +24,8 @@ class ArkanoidModel
     sf::Texture leftwall;
     sf::Texture topwall;
     sf::Texture platform_texture;
-
+    sf::Font font;
+    sf::Text health;
     sf::Sprite wallSprite;
 protected:
     sf::Sprite background;
@@ -44,8 +46,7 @@ protected:
         sf::Sprite getPlatform();
         sf::Sprite getBackground();
         int getHP();
-
-
+        void reset();
 };
 
 #endif // ARKANOIDMODEL_H

@@ -14,6 +14,8 @@ class ArkanoidController
         void mov();
         void handleEvent(sf::Event &event);
         void draw(sf::RenderWindow &win){model.draw(win);}
+        bool isFinished();
+        void resetgame();
 
 };
 

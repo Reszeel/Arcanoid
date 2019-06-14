@@ -2,8 +2,17 @@
 
 ArkanoidModel::ArkanoidModel()
 {
+
+}
+void ArkanoidModel::reset(){
+    score = 0;
     a = 50;
     HP = 3;
+    if (!font.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\arial.ttf")) abort();
+    health.setFont(font);
+    health.setCharacterSize(30);
+    health.setPosition(20, 760);
+    health.setFillColor(sf::Color::White);
     if (!rightwall.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\rightwall.png")) abort();
     if (!ball_texture.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\ball.png")) abort();
     if (!leftwall.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\leftwall.png")) abort();
@@ -35,12 +44,15 @@ ArkanoidModel::ArkanoidModel()
         wall.push_back(wallSprite);
     }
     movex = 1;
-    movey = 1;
-    //firstTouch = false;
+    movey = -1;
 }
 void ArkanoidModel::draw(sf::RenderWindow &win){
+    int i = HP;
+    std::string tmp;
+    sprintf((char*)tmp.c_str(), "%d", i);
+    std::string str = tmp.c_str(); // fragment z zamian¹ int na string zaczerpniêty z: https://4programmers.net/C/Konwersje_int_na_string_i_string_na_int#c-ostringstream
+    health.setString("HP: " + str);
     win.draw(background);
-
     for (int i = 0; i < wall.size(); ++i){
         win.draw(wall[i]);
     }
@@ -49,6 +61,7 @@ void ArkanoidModel::draw(sf::RenderWindow &win){
     }
     win.draw(platform);
     win.draw(ball);
+    win.draw(health);
 }
 void ArkanoidModel::moveBall(){
     ballx =  ball.getPosition().x;
@@ -88,6 +101,7 @@ void ArkanoidModel::boom(){
             if ((x+10)%35 == 0) movex = -movex;
             if ((y+10)%20 == 0) movey = -movey;
             bricks.erase(bricks.begin() + i);
+            score++;
             ball.move(movex, movey);
         }
     }

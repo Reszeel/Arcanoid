@@ -10,3 +10,6 @@ void IntroController::handleEvent(sf::Event &event){
 bool IntroController::isFinished(){
     return finish;
 }
+void IntroController::resetIntro(){
+    finish = false;
+}

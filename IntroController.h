@@ -12,9 +12,10 @@ class IntroController
 
     public:
     IntroController(IntroView &v);
-    void draw(sf::RenderWindow){view.draw(win)};
+    void draw(sf::RenderWindow &win){view.draw(win);};
     void handleEvent (sf::Event &event);
     bool isFinished();
+    void resetIntro();
 
 };
 

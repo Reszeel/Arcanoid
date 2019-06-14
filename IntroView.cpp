@@ -11,11 +11,11 @@ IntroView::IntroView(ArkanoidModel &m):model(m)
 }
 void IntroView::draw(sf::RenderWindow &win){
     model.draw(win);
-    opening.setFillColor(sf::Color::Red);
     opening.setFont(font);
-    opening.setCharacterSize(25);
-    opening.setPosition(150,50);
+    opening.setPosition(150,600);
     opening.setString("PRESS SPACE TO START");
+    opening.setFillColor(sf::Color::White);
+    opening.setCharacterSize(50);
     win.draw(opening);
 }
 
