@@ -4,7 +4,8 @@
 #include <iostream>
 #include <time.h>
 #include <ctime>
-#include <windows.h>
+#include <unistd.h>
+
 
 
 class ArkanoidModel

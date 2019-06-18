@@ -2,7 +2,6 @@
 #define ARKANOIDCONTROLLER_H
 #include "ArkanoidModel.h"
 #include <SFML/Window/Keyboard.hpp>
-#include <windows.h>
 #include <SFML/Graphics.hpp>
 
 

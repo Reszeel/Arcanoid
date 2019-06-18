@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "ArkanoidModel.h"
 #include "ArkanoidController.h"
-#include "ArkanoidView.h"
 #include <iostream>
 #include "IntroView.h"
 #include "IntroController.h"

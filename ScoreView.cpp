@@ -2,7 +2,7 @@
 
 ScoreView::ScoreView(ArkanoidController &a):arkanoid(a)
 {
-    if (!font.loadFromFile("C:\\Users\\Jarek\\Desktop\\c++\\Arkanoid\\bin\\Debug\\arial.ttf")) abort();
+    if (!font.loadFromFile("/home/c/Downloads/Arkanoid/bin/Debug/arial.ttf")) abort();
 }
 void ScoreView::draw(sf::RenderWindow &win){
     arkanoid.draw(win);
